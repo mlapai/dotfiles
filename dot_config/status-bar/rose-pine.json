@@ -1,0 +1,92 @@
+{
+    "icons": ["paxy97", "awesome-fonts"],
+    "defaults": {
+        "warning": {
+            "fg": "#F28FAD",
+            "bg": "#1F1F28"
+        },
+        "critical": {
+            "fg": "#F28FAD",
+            "bg": "#1F1F28"
+        },
+        "default-separators": false,
+        "separator-block-width": 0
+    },
+    "general": {
+        "fg": "#EAD9C9",
+        "bg": "#191724"
+    },
+    "cycle": [
+        {
+            "fg": "#E6C57A",
+            "bg": "#1F1F28"
+        }
+    ],
+    "battery": {
+        "charged": {
+            "fg": "#A6D8D0",
+            "bg": "#1F1F28"
+        },
+        "AC": {
+            "fg": "#A6D8D0",
+            "bg": "#1F1F28"
+        },
+        "discharging": {
+            "fg": "#F28FAD",
+            "bg": "#1F1F28"
+        }
+    },
+    "bluetooth": {
+        "ON": {
+            "fg": "#A6D8D0",
+            "bg": "#1F1F28"
+        },
+        "OFF": {
+            "fg": "#F28FAD",
+            "bg": "#1F1F28"
+        }
+    },
+    "git": {
+        "modified": {
+            "fg": "#E6C57A",
+            "bg": "#1F1F28"
+        },
+        "deleted": {
+            "fg": "#F28FAD",
+            "bg": "#1F1F28"
+        },
+        "new": {
+            "fg": "#A6D8D0",
+            "bg": "#1F1F28"
+        }
+    },
+    "pomodoro": {
+        "paused": {
+            "fg": "#F28FAD",
+            "bg": "#1F1F28"
+        },
+        "work": {
+            "fg": "#A6D8D0",
+            "bg": "#1F1F28"
+        },
+        "break": {
+            "fg": "#E6C57A",
+            "bg": "#1F1F28"
+        }
+    },
+    "keys": {
+        "Key.cmd": {
+            "bg": "#7F9CDA",
+            "full_text": "***"
+        },
+        "Key.shift": {
+            "bg": "#B57D99"
+        },
+        "Key.ctrl": {
+            "bg": "#B8E1D8"
+        },
+        "Key.alt": {
+            "bg": "#F2B2C6"
+        }
+    }
+}

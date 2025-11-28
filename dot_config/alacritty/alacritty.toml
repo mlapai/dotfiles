@@ -1,0 +1,21 @@
+general.import = ["~/.config/alacritty/rose-pine.toml"]
+
+[env]
+  TERM = "xterm-256color"
+  WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+  opacity = 0.75
+
+[colors]
+  cursor = { text = "#000000", cursor = "#FFFFFF" }
+
+[font]
+  normal = { family = "JetBrainsMono NF SemiBold", style = "Regular"}
+  italic = { family = "JetBrainsMono NF SemiBold", style = "Regular"}
+  bold = { family = "JetBrainsMono NF ExtraBold", style = "ExtraBold"}
+  size = 11.25
+  builtin_box_drawing = true
+
+[mouse]
+  hide_when_typing = true

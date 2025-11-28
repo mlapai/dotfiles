@@ -1,0 +1,122 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
+
+ZSH_THEME="jnrowe"
+
+DISABLE_AUTO_UPDATE="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+autoload -U history-search-end
+zmodload -a zsh/stat stat
+zmodload -a zsh/zpty zpty
+zmodload -a zsh/zprof zprof
+
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+# plugins=(zsh-autosuggestions)
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+# Folder navigation
+alias '...'='../..'
+alias '....'='../../..'
+alias '.....'='../../../..'
+alias '......'='../../../../..'
+alias '.......'='../../../../../..'
+alias '........'='../../../../../../..'
+alias cl=clear
+alias mkdir='mkdir -p'
+alias df='df -h'
+
+# Chezmoi
+alias cz='chezmoi'
+alias czd='chezmoi diff'
+alias cza='chezmoi apply'
+alias czcd='chezmoi cd'
+alias cze='chezmoi edit'
+
+# Command aliases
+alias memusage='ps -e -orss=,args= | awk '\''$1 > 0 {printf "%.0f MB\t%s\n", $1/1024, $2}'\'' | sort -n'
+alias tns='tmux new-session -s'
+alias myip='curl ifconfig.me'
+alias vim='nvim'
+alias view='vim -R'
+alias ytdwn='yt-dlp -x --audio-format mp3 --audio-quality 0 --yes-playlist -R 3 --abort-on-unavailable-fragments --cookies-from-browser brave --no-keep-video'
+
+# Docker
+alias dps='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
+alias dpsa='docker ps --format="table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}" -a'
+alias dcpb='docker compose build'
+alias dcpud='docker compose up -d'
+alias dcpl='docker compose logs -f'
+alias dcpu='docker compose up'
+alias dcpdwn='docker compose down'
+alias dcps='docker compose stop'
+alias dimgs='docker images'
+alias dirm='docker image rm'
+alias dirmd='docker rmi $(docker images -f "dangling=true" -q)'
+alias dei='docker exec -it'
+alias dstls='docker stack ls'
+alias dstrm='docker stack rm'
+alias dsls='docker service ls'
+alias dsl='docker service logs --raw --details -f'
+alias dsu='docker service update --force'
+alias dsrm='docker service rm'
+alias dv='docker volume'
+alias dvls='docker volume ls --format "table {{.Driver}}\t{{.Name}}\t{{.Mountpoint}}"'
+alias dvrm='docker volume rm'
+alias dvrmd='docker volume rm $(docker volume ls --format "{{.Name}}" --filter dangling=true | xargs -l)'
+alias dvi='docker volume inspect'
+alias dni='docker network inspect'
+alias dup="docker update --cpuset-cpus '1' --cpus 1 --memory '1g' --memory-swap '1g'"
+
+# Dirs
+alias home='cd ~'
+alias documents='cd ~/Documents'
+alias projects='cd ~/Documents/projects'
+alias music='cd ~/Music'
+alias pictures='cd ~/Pictures'
+alias wallpapers='cd ~/Pictures/wallpapers'
+alias screenshots='cd ~/Pictures/screenshots'
+
+bindkey "^?" backward-delete-char
+bindkey '^[OH' beginning-of-line
+bindkey '^[OF' end-of-line
+bindkey '^[[5~' up-line-or-history
+bindkey '^[[6~' down-line-or-history
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+bindkey "^r" history-incremental-search-backward
+bindkey ' ' magic-space    # also do history expansion on space
+bindkey '^I' complete-word # complete on tab, leave expansion to _expand
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+
+bindkey -v
+
+bindkey -M vicmd 'L' end-of-line
+bindkey -M vicmd 'H' beginning-of-line
+
+alias ls='ls --group-directories-first --color=always -lah'
+
+[ -f ~/Documents/scripts/zsh_project_aliases.sh ] && source ~/Documents/scripts/zsh_project_aliases.sh
+
+# User configuration
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/share/nvm/nvm.sh" ] && \. "/usr/share/nvm/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
